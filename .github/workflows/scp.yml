@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'myridia'
+    if: github.repository_owner == 'myridiax'
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
