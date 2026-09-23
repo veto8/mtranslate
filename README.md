@@ -77,6 +77,43 @@ Response:
 
 `msg`: `mtranslated` (cache hit), `gtranslated` (new), `db error: ...` (DB unreachable), `missing v,s or t parameter ...` (bad request).
 
+### GET examples
+
+Translate:
+```bash
+curl "http://127.0.0.1:8089/?s=en&t=th&v=hello"
+curl "http://127.0.0.1:8089/?s=de&t=en&v=Guten%20Morgen"
+curl "http://127.0.0.1:8089/?s=en&t=de&v=Good%20%20morning"
+```
+
+Multi-word / URL-encoded text (encode spaces or special chars):
+```bash
+curl --get "http://127.0.0.1:8089/" --data-urlencode "s=en" --data-urlencode "t=es" --data-urlencode "v=how are you today?"
+```
+
+Unknown word (new, gets translated and stored):
+```bash
+curl "http://127.0.0.1:8089/?s=en&t=fr&v=xylophone"
+```
+
+Second call, same word — comes back from cache `msg: mtranslated`:
+```bash
+curl "http://127.0.0.1:8089/?s=en&t=fr&v=xylophone"
+```
+
+Missing parameter (validate the error):
+```bash
+curl "http://127.0.0.1:8089/?s=en&v=hello"
+```
+
+Language list / helpers:
+```bash
+curl http://127.0.0.1:8089/codes
+curl http://127.0.0.1:8089/ftl
+curl http://127.0.0.1:8089/help
+curl http://127.0.0.1:8089/test
+```
+
 ### `POST /` — translate HTML
 Same engine, but takes a JSON body and returns HTML with translated text preserving markup:
 ```bash
