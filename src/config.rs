@@ -24,8 +24,8 @@ pub fn get_config() -> AppConfig {
                 db_pass: "passpass".to_string(),
                 db_host: "localhost".to_string(),
                 db_port: "3306".to_string(),
-                wait_min: 2000,
-                wait_max: 7000,
+                wait_min: 4000,
+                wait_max: 10000,
             }
         }
     };
@@ -70,8 +70,8 @@ impl Default for AppConfig {
             db_pass: "passpass".to_string(),
             db_host: "localhost".to_string(),
             db_port: "3306".to_string(),
-            wait_min: 2000,
-            wait_max: 7000,
+            wait_min: 4000,
+            wait_max: 10000,
         }
     }
 }
