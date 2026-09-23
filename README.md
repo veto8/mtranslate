@@ -1,4 +1,4 @@
-<img src="mtranslate.svg" alt="mtranslate" width="120">
+<img src="pages/public/img/logo.png" alt="mtranslate" width="120">
 
 # mtranslate
 
